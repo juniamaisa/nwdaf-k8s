@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nwdaf
+  labels:
+    app: cronpython
+spec:
+  volumes:
+    - name: app-scripts
+      emptyDir: {}
+  initContainers:
+    - name: init-copy-scripts
+      image: nwdaf/cronpython:latest
+      command: ["sh", "-c", "cp -r /app/* /app-shared/"]
+      volumeMounts:
+        - name: app-scripts
+          mountPath: /app-shared
+  containers:
+    - name: cronpython
+      image: nwdaf/cronpython:latest
+      command: ["cron", "-f"]
+      volumeMounts:
+        - name: app-scripts
+          mountPath: /app
+      env:
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: username
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: password
+        - name: POSTGRES_DB
+          valueFrom:
+            secretKeyRef:
+              name: postgres-secret
+              key: database

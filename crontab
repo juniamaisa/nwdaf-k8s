@@ -1,0 +1,11 @@
+# START CRON JOB
+#*/1 * * * * /usr/local/bin/python /app/rotulation_amf.py > /proc/1/fd/1 2>/proc/1/fd/2
+#*/1 * * * * /usr/local/bin/python /app/rotulation_ausf.py > /proc/1/fd/1 2>/proc/1/fd/2
+#*/1 * * * * /usr/local/bin/python /app/rotulation_nrf.py > /proc/1/fd/1 2>/proc/1/fd/2
+#*/1 * * * * /usr/local/bin/python /app/rotulation_nssf.py > /proc/1/fd/1 2>/proc/1/fd/2
+#*/1 * * * * /usr/local/bin/python /app/rotulation_pcf.py > /proc/1/fd/1 2>/proc/1/fd/2
+#*/1 * * * * /usr/local/bin/python /app/rotulation_smf.py > /proc/1/fd/1 2>/proc/1/fd/2
+#*/1 * * * * /usr/local/bin/python /app/rotulation_udm.py > /proc/1/fd/1 2>/proc/1/fd/2
+#*/1 * * * * /usr/local/bin/python /app/rotulation_udr.py > /proc/1/fd/1 2>/proc/1/fd/2
+*/1 * * * * /usr/local/bin/python /app/rotulation_upf.py > /proc/1/fd/1 2>/proc/1/fd/2
+# END CRON JOB
