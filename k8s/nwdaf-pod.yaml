@@ -3,21 +3,21 @@ kind: Pod
 metadata:
   name: nwdaf
   labels:
-    app: cronpython
+    app: nwdaf
 spec:
   volumes:
     - name: app-scripts
       emptyDir: {}
   initContainers:
     - name: init-copy-scripts
-      image: nwdaf/cronpython:latest
+      image: juniamaisa/nwdaf:latest
       command: ["sh", "-c", "cp -r /app/* /app-shared/"]
       volumeMounts:
         - name: app-scripts
           mountPath: /app-shared
   containers:
-    - name: cronpython
-      image: nwdaf/cronpython:latest
+    - name: nwdaf
+      image: juniamaisa/nwdaf:latest
       command: ["cron", "-f"]
       volumeMounts:
         - name: app-scripts
