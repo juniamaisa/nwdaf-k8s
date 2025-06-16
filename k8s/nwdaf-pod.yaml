@@ -4,6 +4,10 @@ metadata:
   name: nwdaf
   labels:
     app: nwdaf
+  annotations:
+    k8s.v1.cni.cncf.io/networks: '[
+      { "name": "n4network", "interface": "eth1", "ips": [ "10.10.4.50/24" ] }
+    ]'
 spec:
   volumes:
     - name: app-scripts
