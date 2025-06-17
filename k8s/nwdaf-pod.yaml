@@ -9,6 +9,7 @@ metadata:
       { "name": "n4network", "interface": "eth1", "ips": [ "10.10.4.50/24" ] }
     ]'
 spec:
+  serviceAccountName: nwdaf-sa
   hostNetwork: true
   volumes:
     - name: app-scripts

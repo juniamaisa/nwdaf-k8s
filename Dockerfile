@@ -20,6 +20,8 @@ RUN apt-get update && apt-get install -y \
     libxft-dev \
     libfreetype6-dev \
     cron \
+    tcpdump \
+    jq \
     vim
 WORKDIR /app
 #RUN pip3 install pyhdfs
@@ -42,6 +44,9 @@ RUN /usr/bin/crontab /etc/cron.d/crontab
 #COPY notebooks/rotulation_udr.py /app/rotulation_udr.py
 COPY notebooks/rotulation_upf.py /app/rotulation_upf.py
 COPY notebooks/utils.py /app/utils.py
+COPY scripts/start_sniff.sh
+RUN chmod +x /app/start_sniff.sh
+RUN mkdir -p /pcaps
 #COPY scripts/gen_model.py /app/gen_model.py
 RUN echo $PYTHONPATH
 
