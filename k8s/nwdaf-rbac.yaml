@@ -7,7 +7,7 @@ metadata:
   namespace: default
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
+kind: ClusterRole
 metadata:
   name: nwdaf-pod-reader
   namespace: default
@@ -15,9 +15,12 @@ rules:
 - apiGroups: [""]
   resources: ["pods"]
   verbs: ["get", "list", "watch"]
+- apiGroups: ["metrics.k8s.io"]
+  resources: ["pods"]
+  verbs: ["get", "list"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
+kind: ClusterRoleBinding
 metadata:
   name: nwdaf-pod-reader-binding
   namespace: default
@@ -26,7 +29,7 @@ subjects:
   name: nwdaf-sa
   namespace: default
 roleRef:
-  kind: Role
+  kind: ClusterRole
   name: nwdaf-pod-reader
   apiGroup: rbac.authorization.k8s.io
 

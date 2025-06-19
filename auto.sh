@@ -101,6 +101,21 @@ kubectl apply -f /home/ubuntu/nwdaf-k8s/k8s/secret.yaml
 kubectl apply -f /home/ubuntu/nwdaf-k8s/k8s/postgres.yaml
 kubectl apply -f /home/ubuntu/nwdaf-k8s/k8s/nwdaf-pod.yaml
 kubectl apply -f /home/ubuntu/nwdaf-k8s/k8s/nwdaf-rbac.yaml
+sleep 10
+echo "Building Metric Server"
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+kubectl -n kube-system patch deployment metrics-server \
+  --type='json' \
+  -p='[{
+    "op": "add",
+    "path": "/spec/template/spec/containers/0/args/-",
+    "value": "--kubelet-insecure-tls"
+  }, {
+    "op": "add",
+    "path": "/spec/template/spec/containers/0/args/-",
+    "value": "--kubelet-preferred-address-types=InternalIP"
+  }]'
+
 
 echo "### Deleting previus stress scenarios ###"
 kubectl get networkchaos -o name | xargs kubectl delete
