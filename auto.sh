@@ -115,9 +115,10 @@ kubectl -n kube-system patch deployment metrics-server \
     "path": "/spec/template/spec/containers/0/args/-",
     "value": "--kubelet-preferred-address-types=InternalIP"
   }]'
-
+kubectl create configmap init-sql   --from-file=init.sql=/home/ubuntu/nwdaf-k8s/init.sql
 
 echo "### Deleting previus stress scenarios ###"
 kubectl get networkchaos -o name | xargs kubectl delete
 kubectl get stresschaos -o name | xargs kubectl delete
+
 
