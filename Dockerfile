@@ -21,6 +21,7 @@ RUN apt-get update && apt-get install -y \
     libfreetype6-dev \
     cron \
     tcpdump \
+    tshark \
     jq \
     vim
 WORKDIR /app
@@ -46,8 +47,13 @@ COPY notebooks/rotulation_upf.py /app/rotulation_upf.py
 COPY notebooks/utils.py /app/utils.py
 COPY scripts/start_sniff.sh /app/start_sniff.sh
 COPY scripts/start_metric.sh /app/start_metric.sh
+COPY scripts/monitor_networks.sh /app/monitor_networks.sh
 RUN chmod +x /app/start_sniff.sh
+RUN chmod +x /app/start_metric.sh
+RUN chmod +x /app/monitor_networks.sh
 RUN mkdir -p /pcaps
+RUN mkdir -p /resources
+RUN mkdir -p /networks
 #COPY scripts/gen_model.py /app/gen_model.py
 RUN echo $PYTHONPATH
 
