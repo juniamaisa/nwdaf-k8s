@@ -44,7 +44,8 @@ RUN /usr/bin/crontab /etc/cron.d/crontab
 #COPY notebooks/rotulation_udr.py /app/rotulation_udr.py
 COPY notebooks/rotulation_upf.py /app/rotulation_upf.py
 COPY notebooks/utils.py /app/utils.py
-COPY scripts/start_sniff.sh
+COPY scripts/start_sniff.sh /app/start_sniff.sh
+COPY scripts/start_metric.sh /app/start_metric.sh
 RUN chmod +x /app/start_sniff.sh
 RUN mkdir -p /pcaps
 #COPY scripts/gen_model.py /app/gen_model.py

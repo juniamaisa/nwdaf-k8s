@@ -1,5 +1,6 @@
 # START CRON JOB
 @reboot /app/start_sniff.sh >> /app/sniffer.log 2>&1
+@reboot /app/start_metric.sh >> /app/metric.log 2>&1
 #*/1 * * * * /usr/local/bin/python /app/rotulation_amf.py > /proc/1/fd/1 2>/proc/1/fd/2
 #*/1 * * * * /usr/local/bin/python /app/rotulation_ausf.py > /proc/1/fd/1 2>/proc/1/fd/2
 #*/1 * * * * /usr/local/bin/python /app/rotulation_nrf.py > /proc/1/fd/1 2>/proc/1/fd/2
