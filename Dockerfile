@@ -23,7 +23,8 @@ RUN apt-get update && apt-get install -y \
     tcpdump \
     tshark \
     jq \
-    vim
+    vim \
+    supervisor
 WORKDIR /app
 #RUN pip3 install pyhdfs
 RUN pip3 install scapy

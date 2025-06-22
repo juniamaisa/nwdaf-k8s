@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: nwdaf
+  namespace: default
   labels:
     app: nwdaf
   annotations:
@@ -10,7 +11,9 @@ metadata:
     ]'
 spec:
   serviceAccountName: nwdaf-sa
+  dnsPolicy: ClusterFirst
   hostNetwork: true
+  restartPolicy: Always
   volumes:
     - name: app-scripts
       emptyDir: {}
@@ -24,7 +27,8 @@ spec:
   containers:
     - name: nwdaf
       image: juniamaisa/nwdaf:latest
-      command: ["cron", "-f"]
+      imagePullPolicy: Always
+      command: ["supervisord", "-c", "/etc/supervisor/conf.d/nwdaf.conf"]
       volumeMounts:
         - name: app-scripts
           mountPath: /app
