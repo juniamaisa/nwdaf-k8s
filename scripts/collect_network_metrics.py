@@ -9,9 +9,9 @@ INTERVAL = 5  # segundos
 
 # Configuração do banco
 DB_CONFIG = {
-    "dbname": "meubanco",
-    "user": "usuario",
-    "password": "senha",
+    "dbname": "nwdaf",
+    "user": "nwdaf",
+    "password": "nwdaf123",
     "host": "postgres",
     "port": 5432,
 }

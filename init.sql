@@ -48,10 +48,11 @@ ALTER TABLE public.metrics_superv ADD tp int NULL;
 
 CREATE TABLE pod_resources (
     id SERIAL PRIMARY KEY,
-    pod_name TEXT NOT NULL,
     timestamp TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    cpu_millicores INT,
-    memory_mib INT
+    namespace TEXT NOT NULL,
+    pod_name TEXT NOT NULL,
+    cpu_millicores INT,  -- CPU em millicores (1000m = 1 core)
+    memory_mib INT       -- Memória em MiB
 );
 
 CREATE TABLE pod_ip_conversations (
