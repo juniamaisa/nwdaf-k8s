@@ -46,4 +46,21 @@ ALTER TABLE public.metrics_superv ADD fp int NULL;
 ALTER TABLE public.metrics_superv ADD fn int NULL;
 ALTER TABLE public.metrics_superv ADD tp int NULL;
 
+CREATE TABLE pod_resources (
+    id SERIAL PRIMARY KEY,
+    pod_name TEXT NOT NULL,
+    timestamp TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    cpu_millicores INT,
+    memory_mib INT
+);
 
+CREATE TABLE pod_ip_conversations (
+    id SERIAL PRIMARY KEY,
+    pod_name TEXT NOT NULL,
+    timestamp TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    src_ip INET NOT NULL,
+    dst_ip INET NOT NULL,
+    bytes_src_to_dst BIGINT,
+    bytes_dst_to_src BIGINT,
+    total_bytes BIGINT
+);
