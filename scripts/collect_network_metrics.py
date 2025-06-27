@@ -68,30 +68,35 @@ def extract_conversations_from_pcap(pcap_path):
         print(f"[ERRO] Falha ao rodar tshark: {e}")
         return ""
 
+import re
+
 def parse_conversations(raw_output):
     lines = raw_output.splitlines()
     conversations = []
     parsing = False
 
+    # Regex para capturar IPs e bytes
+    pattern = re.compile(
+        r"(?P<src_ip>\d{1,3}(?:\.\d{1,3}){3})\s+<->\s+(?P<dst_ip>\d{1,3}(?:\.\d{1,3}){3})\s+"
+        r"(?P<pkts_src>\d+)\s+(?P<bytes_src>\d+)\s+\w+\s+"
+        r"(?P<pkts_dst>\d+)\s+(?P<bytes_dst>\d+)\s+\w+"
+    )
+
     for line in lines:
         if "IPv4 Conversations" in line:
             parsing = True
             continue
-        if parsing and line.strip() == "":
-            break
         if parsing and "<->" in line:
-            parts = line.strip().split()
-            try:
-                src_ip = parts[0]
-                dst_ip = parts[2]
-                bytes_src_to_dst = int(parts[-3].replace(",", ""))
-                bytes_dst_to_src = int(parts[-2].replace(",", ""))
-                total_bytes = int(parts[-1].replace(",", ""))
-                conversations.append((src_ip, dst_ip, bytes_src_to_dst, bytes_dst_to_src, total_bytes))
-            except Exception as e:
+            match = pattern.search(line)
+            if match:
+                src_ip = match.group("src_ip")
+                dst_ip = match.group("dst_ip")
+                bytes_src = int(match.group("bytes_src"))
+                bytes_dst = int(match.group("bytes_dst"))
+                total = bytes_src + bytes_dst
+                conversations.append((src_ip, dst_ip, bytes_src, bytes_dst, total))
+            else:
                 print(f"[ERRO] Linha ignorada por parsing incorreto: {line}")
-                continue
-
     return conversations
 
 def insert_into_db(pod_name, conversations):
