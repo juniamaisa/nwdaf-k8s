@@ -23,3 +23,6 @@ minikube ssh -- "docker rmi --force juniamaisa/nwdaf:latest"
 
 minikube delete
 minikube start --driver=docker --cpus=4 --memory=8g --disk-size=20g --cni=flannel
+
+
+minikube start --cpus=4 --memory=8g --disk-size=20g --network-plugin=cni --cni=bridge
