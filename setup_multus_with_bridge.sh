@@ -55,7 +55,7 @@ EOF
 
 echo "✅ Multus e redes bridge configuradas com sucesso"
 
-sleep 10
+sleep 60
 
 echo "🔧 Criando bridge virtual br-multus dentro do Minikube..."
 

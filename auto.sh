@@ -6,8 +6,8 @@ echo "Building GPT"
 cd /home/nucleo/gtp5g
 sudo make uninstall
 cd /home/nucleo
-#rm -Rf gtp5g
-#git clone -b v0.8.2 https://github.com/free5gc/gtp5g.git
+rm -Rf gtp5g
+git clone -b v0.8.2 https://github.com/free5gc/gtp5g.git
 cd /home/nucleo/gtp5g/ 
 echo "####Uninstalling previous GPT versions"
 sudo make uninstall
