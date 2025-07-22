@@ -63,6 +63,7 @@ minikube ssh <<EOF
 sudo ip link add br-multus type bridge 2>/dev/null || echo "br-multus já existe"
 sudo ip addr add 10.10.0.254/16 dev br-multus 2>/dev/null || echo "IP já atribuído à br-multus"
 sudo ip link set br-multus up
+exit
 EOF
 
 echo "✅ Bridge criada dentro da VM do Minikube."
