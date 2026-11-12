@@ -55,7 +55,7 @@ chmod +x build_deploy.sh
 
 J. M. Oliveira et al., "Anomaly Detection Employing a 5G Core Data Analytics Framework," 2024 IEEE 13th International Conference on Cloud Networking (CloudNet), Rio de Janeiro, Brazil, 2024, pp. 1-9, doi: 10.1109/CloudNet62863.2024.10815754. keywords: {Analytical models;Data analysis;Machine learning algorithms;5G mobile communication;Source coding;Inspection;3GPP;Computer security;Anomaly detection;Application programming interfaces;NWDAF;5G network;5G core;data analytics;network data analytics;anomaly detection;3GPP},
 
-
+```bash
 @INPROCEEDINGS{10815754,
   author={Oliveira, Júnia Maísa and Almeida, Jônatan and De Britto e Silva, Erik and Rodrigues Moreira, Larissa Ferreira and Moreira, Rodrigo and Silva, Flávio O. and Macedo, Daniel F. and Nogueira, José Marcos},
   booktitle={2024 IEEE 13th International Conference on Cloud Networking (CloudNet)}, 
@@ -65,5 +65,5 @@ J. M. Oliveira et al., "Anomaly Detection Employing a 5G Core Data Analytics Fra
   number={},
   pages={1-9},
   doi={10.1109/CloudNet62863.2024.10815754}}
-
+```
 
