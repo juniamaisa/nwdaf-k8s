@@ -1,3 +1,7 @@
+## NWDAF a 5G data analytics implementation
+
+This repository contains a Network Data Analytics Function (NWDAF) developed as part of the **SFI2 – Slicing Future Internet Infrastructures** and **PORVIR 5G – Programmability, Orchestration and Virtualization in 5G Networks** projects. The implementation is based on research published at the **2024 IEEE 13th International Conference on Cloud Networking (CloudNet)** named Anomaly detection employing a 5g core data analytics framework.
+
 # nwdaf-k8s
 
 This repository contains everything needed to build and deploy a Python + cron-based NWDAF system and a PostgreSQL database inside a Kubernetes environment — without using DockerHub or manual steps.
