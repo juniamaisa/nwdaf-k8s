@@ -43,3 +43,23 @@ git clone https://github.com/your_user/nwdaf-k8s.git
 cd nwdaf-k8s
 chmod +x build_deploy.sh
 ./build_deploy.sh
+```
+
+---
+
+## Cite this work
+
+J. M. Oliveira et al., "Anomaly Detection Employing a 5G Core Data Analytics Framework," 2024 IEEE 13th International Conference on Cloud Networking (CloudNet), Rio de Janeiro, Brazil, 2024, pp. 1-9, doi: 10.1109/CloudNet62863.2024.10815754. keywords: {Analytical models;Data analysis;Machine learning algorithms;5G mobile communication;Source coding;Inspection;3GPP;Computer security;Anomaly detection;Application programming interfaces;NWDAF;5G network;5G core;data analytics;network data analytics;anomaly detection;3GPP},
+
+
+@INPROCEEDINGS{10815754,
+  author={Oliveira, Júnia Maísa and Almeida, Jônatan and De Britto e Silva, Erik and Rodrigues Moreira, Larissa Ferreira and Moreira, Rodrigo and Silva, Flávio O. and Macedo, Daniel F. and Nogueira, José Marcos},
+  booktitle={2024 IEEE 13th International Conference on Cloud Networking (CloudNet)}, 
+  title={Anomaly Detection Employing a 5G Core Data Analytics Framework}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={1-9},
+  doi={10.1109/CloudNet62863.2024.10815754}}
+
+
